@@ -1,0 +1,15 @@
+const StackVM = require('./StackVM');
+
+module.exports = (req, res) => {
+    const vm = new StackVM();
+    const { instructions } = req.body;
+
+    try {
+        instructions.forEach(instr => {
+            vm.execute(instr.command, instr.value);
+        });
+        res.status(200).json({ stack: vm.getStack() });
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+};
