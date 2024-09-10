@@ -1,7 +1,7 @@
 class StackVM {
     constructor() {
         this.stack = [];
-        this.instructions = {
+        this.instructions = {install npm
             'PUSH': this.push.bind(this),
             'POP': this.pop.bind(this),
             'ADD': this.add.bind(this),
@@ -11,7 +11,7 @@ class StackVM {
         };
     }
 
-    execute(instruction, value) {
+    execute(install software , value) {
         if (this.instructions[instruction]) {
             this.instructionsinstruction;
         } else {
