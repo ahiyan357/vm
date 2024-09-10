@@ -1,0 +1,59 @@
+class StackVM {
+    constructor() {
+        this.stack = [];
+        this.instructions = {
+            'PUSH': this.push.bind(this),
+            'POP': this.pop.bind(this),
+            'ADD': this.add.bind(this),
+            'SUB': this.subtract.bind(this),
+            'MUL': this.multiply.bind(this),
+            'DIV': this.divide.bind(this),
+        };
+    }
+
+    execute(instruction, value) {
+        if (this.instructions[instruction]) {
+            this.instructionsinstruction;
+        } else {
+            throw new Error(`Unknown instruction: ${instruction}`);
+        }
+    }
+
+    push(value) {
+        this.stack.push(value);
+    }
+
+    pop() {
+        return this.stack.pop();
+    }
+
+    add() {
+        const b = this.pop();
+        const a = this.pop();
+        this.push(a + b);
+    }
+
+    subtract() {
+        const b = this.pop();
+        const a = this.pop();
+        this.push(a - b);
+    }
+
+    multiply() {
+        const b = this.pop();
+        const a = this.pop();
+        this.push(a * b);
+    }
+
+    divide() {
+        const b = this.pop();
+        const a = this.pop();
+        this.push(a / b);
+    }
+
+    getStack() {
+        return this.stack;
+    }
+}
+
+module.exports = StackVM;
